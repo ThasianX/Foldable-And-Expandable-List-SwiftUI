@@ -23,7 +23,7 @@ struct VisitDetailsView: View {
             .edgesIgnoringSafeArea(.all)
             .background(Color.blackPearl)
             .clipShape(RoundedRectangle(cornerRadius: isSelected ? 30 : 10, style: .continuous))
-            .animation(.easeInOut)
+            .animation(.easeInOut) // we want an easeInOut to be applied to the expanding animation
             .onTapGesture(perform: setSelectedVisitIndex)
             .exitOnDrag(if: isSelected, onExit: unselectRow, isSimultaneous: true) // simultaneous because there's a scrollview embedded inside
     }
@@ -78,6 +78,7 @@ private extension VisitDetailsView {
             .fontWeight(isSelected ? .bold : .regular)
             .lineLimit(isSelected ? nil : 1)
             .multilineTextAlignment(.center)
+             // Never want to animate the text because you'll get ...s during the animation
             .animation(nil)
     }
 
@@ -144,6 +145,9 @@ private extension VisitDetailsView {
 
 struct VisitDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        VisitDetailsView(selectedIndex: .constant(1), index: 1, visit: .mock)
+        Group {
+            VisitDetailsView(selectedIndex: .constant(1), index: 0, visit: .mock)
+            VisitDetailsView(selectedIndex: .constant(1), index: 1, visit: .mock)
+        }
     }
 }

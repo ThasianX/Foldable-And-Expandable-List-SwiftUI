@@ -37,14 +37,15 @@ struct ExpandAndFoldModifier: ViewModifier {
 
 private struct _ExpandAndFoldModifier: ViewModifier {
 
-    let foldOffset: CGFloat
-    let minY: CGFloat
-    let shouldFold: Bool
-    let isActiveIndex: Bool
+    let foldOffset: CGFloat // y coordinate at which to start folding
+    let minY: CGFloat // the current y coordinate of the row
+    let shouldFold: Bool // shouldn't fold when expanded
+    let isActiveIndex: Bool // if the row is active, we want to expand it by offsetting it from it's current position to the top of the screen
 
     func body(content: Content) -> some View {
         content
             .offset(y: isActiveIndex ? topOfScreen : 0)
+            // 
             .rotation3DEffect(rotationAngle, axis: (x: -200, y: 0, z: 0), anchor: .bottom)
             .opacity(opacity)
     }
