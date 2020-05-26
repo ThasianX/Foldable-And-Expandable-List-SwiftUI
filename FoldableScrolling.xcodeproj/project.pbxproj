@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		1E9756FB247C377800847313 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9756FA247C377800847313 /* AppDelegate.swift */; };
 		1E9756FD247C377800847313 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9756FC247C377800847313 /* SceneDelegate.swift */; };
-		1E9756FF247C377800847313 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9756FE247C377800847313 /* ContentView.swift */; };
+		1E9756FF247C377800847313 /* VisitsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E9756FE247C377800847313 /* VisitsListView.swift */; };
 		1E975701247C377A00847313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E975700247C377A00847313 /* Assets.xcassets */; };
 		1E975704247C377A00847313 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E975703247C377A00847313 /* Preview Assets.xcassets */; };
 		1E975707247C377A00847313 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E975705247C377A00847313 /* LaunchScreen.storyboard */; };
+		1E97570F247CA18E00847313 /* VisitDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E97570E247CA18E00847313 /* VisitDetailsView.swift */; };
+		1E975711247CA1C400847313 /* Visit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E975710247CA1C400847313 /* Visit.swift */; };
+		1E975713247CA24A00847313 /* View+ExitOnDrag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E975712247CA24A00847313 /* View+ExitOnDrag.swift */; };
+		1E975715247CB70F00847313 /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E975714247CB70F00847313 /* Date+toString.swift */; };
+		1E975717247CB86E00847313 /* View+ExpandableAndFoldable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E975716247CB86E00847313 /* View+ExpandableAndFoldable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1E9756F7247C377800847313 /* FoldableScrolling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoldableScrolling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E9756FA247C377800847313 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E9756FC247C377800847313 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1E9756FE247C377800847313 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1E9756FE247C377800847313 /* VisitsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitsListView.swift; sourceTree = "<group>"; };
 		1E975700247C377A00847313 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E975703247C377A00847313 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E975706247C377A00847313 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E975708247C377A00847313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E97570E247CA18E00847313 /* VisitDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisitDetailsView.swift; sourceTree = "<group>"; };
+		1E975710247CA1C400847313 /* Visit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Visit.swift; sourceTree = "<group>"; };
+		1E975712247CA24A00847313 /* View+ExitOnDrag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ExitOnDrag.swift"; sourceTree = "<group>"; };
+		1E975714247CB70F00847313 /* Date+toString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+toString.swift"; sourceTree = "<group>"; };
+		1E975716247CB86E00847313 /* View+ExpandableAndFoldable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ExpandableAndFoldable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +68,12 @@
 			children = (
 				1E9756FA247C377800847313 /* AppDelegate.swift */,
 				1E9756FC247C377800847313 /* SceneDelegate.swift */,
-				1E9756FE247C377800847313 /* ContentView.swift */,
+				1E975714247CB70F00847313 /* Date+toString.swift */,
+				1E975712247CA24A00847313 /* View+ExitOnDrag.swift */,
+				1E975716247CB86E00847313 /* View+ExpandableAndFoldable.swift */,
+				1E975710247CA1C400847313 /* Visit.swift */,
+				1E9756FE247C377800847313 /* VisitsListView.swift */,
+				1E97570E247CA18E00847313 /* VisitDetailsView.swift */,
 				1E975700247C377A00847313 /* Assets.xcassets */,
 				1E975705247C377A00847313 /* LaunchScreen.storyboard */,
 				1E975708247C377A00847313 /* Info.plist */,
@@ -146,9 +161,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E975715247CB70F00847313 /* Date+toString.swift in Sources */,
 				1E9756FB247C377800847313 /* AppDelegate.swift in Sources */,
+				1E97570F247CA18E00847313 /* VisitDetailsView.swift in Sources */,
 				1E9756FD247C377800847313 /* SceneDelegate.swift in Sources */,
-				1E9756FF247C377800847313 /* ContentView.swift in Sources */,
+				1E975711247CA1C400847313 /* Visit.swift in Sources */,
+				1E975713247CA24A00847313 /* View+ExitOnDrag.swift in Sources */,
+				1E975717247CB86E00847313 /* View+ExpandableAndFoldable.swift in Sources */,
+				1E9756FF247C377800847313 /* VisitsListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +309,7 @@
 				DEVELOPMENT_TEAM = 75H2NCGMKS;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FoldableScrolling/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +330,7 @@
 				DEVELOPMENT_TEAM = 75H2NCGMKS;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FoldableScrolling/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
