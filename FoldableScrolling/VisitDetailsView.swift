@@ -45,8 +45,8 @@ private extension VisitDetailsView {
                 .padding(.bottom, isSelected ? 10 : 0)
                 .padding(.horizontal, isSelected ? 30 : 0)
             coreDetailsView
-            notesIfSelected
-                .padding(.bottom, 100)
+            visitNotesTextView
+                .padding(.horizontal)
             Spacer()
         }
         .foregroundColor(.white)
@@ -120,21 +120,14 @@ private extension VisitDetailsView {
             .frame(width: 30, height: 5)
     }
 
-    private var notesIfSelected: some View {
-        Group {
-            if isSelected {
-                visitNotesTextView
-                    .padding(.horizontal)
-            }
-        }
-    }
-
     private var visitNotesTextView: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: true) {
                 Text(self.visit.notes)
+                    .animation(nil) // Especially with huge text like this, don't animate it
+                    .font(self.isSelected ? .body : .caption)
                     .fixedSize(horizontal: false, vertical: true)
-                    .lineLimit(nil)
+                    .lineLimit(self.isSelected ? nil : 3)
                     .multilineTextAlignment(.center)
                     .frame(width: geometry.size.width)
             }

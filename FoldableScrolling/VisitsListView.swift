@@ -11,7 +11,7 @@ extension Color {
 }
 
 struct VisitCellConstants {
-    static let height: CGFloat = 80
+    static let height: CGFloat = 130
     static let width: CGFloat = screen.width - 60
 
     static func height(if isSelected: Bool) -> CGFloat {
