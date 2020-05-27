@@ -4,7 +4,7 @@ This project is a demonstration of how to add simultaneous animations of folding
 
 Also, make sure to check out [TimePrints](https://github.com/ThasianX/TimePrints), an app that I'm almost done working on that utilizes this foldable scrolling animations as well as other slick SwiftUI animations.
 
-**The animation is actually much smoother if you run it yourself. The gif just makes it look so fast and shaky**
+**The animation is actually much smoother if you run it yourself. Also, I have added a `How this Works` below**
 <p align="center"><img src="demonstration.gif" height="800"/></p>
 
 ## How this works
