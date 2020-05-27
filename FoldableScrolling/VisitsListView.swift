@@ -3,6 +3,8 @@
 import SwiftUI
 
 let screen = UIScreen.main.bounds
+let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+let statusBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 
 extension Color {
 
@@ -24,6 +26,8 @@ struct VisitCellConstants {
     }
 }
 
+fileprivate let listOffset: CGFloat = 95
+
 struct VisitsListView: View {
 
     @State private var activeVisitIndex: Int = -1
@@ -39,7 +43,7 @@ struct VisitsListView: View {
             header
             visitsForDayList
                 // Can't do VStack because it interfere with the expand animation so I have to do a ZStack with offset
-                .offset(y: isShowingVisit ? 0 : 95)
+                .offset(y: isShowingVisit ? 0 : listOffset)
         }
         .background(backgroundColor)
         .animation(.spring())
@@ -79,13 +83,15 @@ private extension VisitsListView {
 
 }
 
+fileprivate let listTopPadding: CGFloat = 20
+
 private extension VisitsListView {
 
     private var visitsForDayList: some View {
         ScrollView(.vertical, showsIndicators: false) {
             visitsForDayStack
                 .frame(width: screen.width)
-                .padding(.top, 20) // A bit of room between the label and list for the row to fold
+                .padding(.top, listTopPadding) // A bit of room between the label and list for the row to fold
                 // Allows room to scroll up and fold rows. You will also notice that for smaller
                 // lists(ones that don't fill up the entire screen height), this padding is
                 // crucial because after the offset to the top of the screen,
@@ -117,9 +123,9 @@ private extension VisitsListView {
             .opacity(isNotActiveVisit(at: index) ? 0 : 1)
             .scaleEffect(isNotActiveVisit(at: index) ? 0.5 : 1)
             .offset(x: isNotActiveVisit(at: index) ? screen.width : 0)
-            // 160 takes into account the status bar height(45) + list offset(95) + list top padding(20)
             .expandableAndFoldable(
-                foldOffset: 160,
+                rowHeight: VisitCellConstants.height,
+                foldOffset: statusBarHeight + listOffset + listTopPadding,
                 shouldFold: !isShowingVisit, // do not want to fold if a row is expanded
                 isActiveIndex: isVisitIndexActive(at: index)) // used to determine which row should be expanded
     }

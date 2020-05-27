@@ -5,10 +5,12 @@ import SwiftUI
 extension View {
 
     func expandableAndFoldable(
+        rowHeight: CGFloat,
         foldOffset: CGFloat,
         shouldFold: Bool,
         isActiveIndex: Bool) -> some View {
         modifier(ExpandAndFoldModifier(
+            rowHeight: rowHeight,
             foldOffset: foldOffset,
             shouldFold: shouldFold,
             isActiveIndex: isActiveIndex))
@@ -18,6 +20,7 @@ extension View {
 
 struct ExpandAndFoldModifier: ViewModifier {
 
+    let rowHeight: CGFloat
     let foldOffset: CGFloat
     let shouldFold: Bool
     let isActiveIndex: Bool
@@ -30,13 +33,14 @@ struct ExpandAndFoldModifier: ViewModifier {
     }
 
     private func makeNestedModifier(withMinY minY: CGFloat) -> _ExpandAndFoldModifier {
-        _ExpandAndFoldModifier(foldOffset: foldOffset, minY: minY, shouldFold: shouldFold, isActiveIndex: isActiveIndex)
+        _ExpandAndFoldModifier(rowHeight: rowHeight, foldOffset: foldOffset, minY: minY, shouldFold: shouldFold, isActiveIndex: isActiveIndex)
     }
 
 }
 
 private struct _ExpandAndFoldModifier: ViewModifier {
 
+    let rowHeight: CGFloat // height of the row to be folded
     let foldOffset: CGFloat // y coordinate at which to start folding
     let minY: CGFloat // the current y coordinate of the row
     let shouldFold: Bool // shouldn't fold when expanded
@@ -79,7 +83,7 @@ private struct _ExpandAndFoldModifier: ViewModifier {
 
     private var foldDelta: Double {
         // in the future, can always pass in custom heights and widths
-        Double((VisitCellConstants.height + (minY - foldOffset)) / VisitCellConstants.height)
+        Double((rowHeight + (minY - foldOffset)) / rowHeight)
     }
     
 }
