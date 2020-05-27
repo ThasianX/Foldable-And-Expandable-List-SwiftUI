@@ -115,6 +115,8 @@ private extension VisitsListView {
             // You can also apply other transformations like scaling or offsetting non-active
             // rows for cooler effects! Play around with it!
             .opacity(isNotActiveVisit(at: index) ? 0 : 1)
+            .scaleEffect(isNotActiveVisit(at: index) ? 0.5 : 1)
+            .offset(x: isNotActiveVisit(at: index) ? screen.width : 0)
             // 160 takes into account the status bar height(45) + list offset(95) + list top padding(20)
             .expandableAndFoldable(
                 foldOffset: 160,
