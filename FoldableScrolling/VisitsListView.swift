@@ -82,7 +82,7 @@ private extension VisitsListView {
 private extension VisitsListView {
 
     private var visitsForDayList: some View {
-        ScrollView(.vertical) {
+        ScrollView(.vertical, showsIndicators: false) {
             visitsForDayStack
                 .frame(width: screen.width)
                 .padding(.top, 20) // A bit of room between the label and list for the row to fold
