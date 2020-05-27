@@ -82,7 +82,6 @@ private struct _ExpandAndFoldModifier: ViewModifier {
     }
 
     private var foldDelta: Double {
-        // in the future, can always pass in custom heights and widths
         Double((rowHeight + (minY - foldOffset)) / rowHeight)
     }
     
