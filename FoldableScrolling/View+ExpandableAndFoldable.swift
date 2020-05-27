@@ -45,7 +45,6 @@ private struct _ExpandAndFoldModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .offset(y: isActiveIndex ? topOfScreen : 0)
-            // 
             .rotation3DEffect(rotationAngle, axis: (x: -200, y: 0, z: 0), anchor: .bottom)
             .opacity(opacity)
     }

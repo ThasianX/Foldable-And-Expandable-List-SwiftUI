@@ -2,6 +2,14 @@
 
 import SwiftUI
 
+extension AnyTransition {
+
+    static var scaleFade: AnyTransition {
+        AnyTransition.scale.combined(with: .opacity)
+    }
+
+}
+
 struct VisitDetailsView: View {
 
     @Binding var selectedIndex: Int
@@ -47,6 +55,8 @@ private extension VisitDetailsView {
             coreDetailsView
             visitNotesTextView
                 .padding(.horizontal)
+                .transition(.opacity)
+                .id("\(self.visit.notes)\(self.isSelected)")
             Spacer()
         }
         .foregroundColor(.white)
@@ -54,10 +64,14 @@ private extension VisitDetailsView {
     
     private var header: some View {
         HStack {
-            backButton
-                .opacity(isSelected ? 1 : 0)
+            if isSelected {
+                backButton
+                    .transition(.scaleFade)
+            }
             Spacer()
             locationNameText
+                .transition(.scaleFade)
+                .id("\(visit.locationName)\(isSelected)")
             Spacer()
         }
     }
@@ -78,16 +92,19 @@ private extension VisitDetailsView {
             .fontWeight(isSelected ? .bold : .regular)
             .lineLimit(isSelected ? nil : 1)
             .multilineTextAlignment(.center)
-             // Never want to animate the text because you'll get ...s during the animation
-            .animation(nil)
     }
 
     private var coreDetailsView: some View {
         Group {
             visitDurationText
-            fullMonthWithDayOfWeekTextIfSelected
-                .padding(.top, isSelected ? 8 : 0)
-                .padding(.bottom, isSelected ? 10 : 0)
+                .transition(.scaleFade)
+                .id("\(visit.duration)\(isSelected)")
+            if isSelected {
+                fullMonthWithDayOfWeekText
+                    .transition(.scaleFade)
+                    .padding(.top, 8)
+                    .padding(.bottom, 10)
+            }
             locationTagView
                 .padding(.top, 6)
                 .padding(.bottom, isSelected ? 20 : 4)
@@ -98,15 +115,6 @@ private extension VisitDetailsView {
         Text(visit.duration)
             .font(isSelected ? .system(size: 18) : .system(size: 10))
             .tracking(isSelected ? 2 : 0)
-            .animation(nil)
-    }
-
-    private var fullMonthWithDayOfWeekTextIfSelected: some View {
-        Group {
-            if isSelected {
-                fullMonthWithDayOfWeekText
-            }
-        }
     }
 
     private var fullMonthWithDayOfWeekText: some View {
@@ -124,7 +132,6 @@ private extension VisitDetailsView {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: true) {
                 Text(self.visit.notes)
-                    .animation(nil) // Especially with huge text like this, don't animate it
                     .font(self.isSelected ? .body : .caption)
                     .fixedSize(horizontal: false, vertical: true)
                     .lineLimit(self.isSelected ? nil : 3)
