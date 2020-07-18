@@ -2,10 +2,12 @@
 
 This project is a demonstration of how to add simultaneous animations of folding and expanding cells while scrolling. In the project, I put a lot of comments explaining the code behind this. It's by no means perfect and it is my hope that others in the community can perfect the animations I've laid out. 
 
+This project is inspired by [TimePage](https://us.moleskine.com/timepage/p0486) and is part of a larger repository of elegant demonstrations like this: [TimePage Clone](https://github.com/ThasianX/TimePage-Clone). 
+
 Also, make sure to check out [TimePrints](https://github.com/ThasianX/TimePrints), an app that I'm almost done working on that utilizes this foldable scrolling animations as well as other slick SwiftUI animations.
 
-**The animation is actually much smoother if you run it yourself. Also, I have added a `How this Works` below**
-<p align="center"><img src="demonstration.gif" height="800"/></p>
+**The animation is actually much smoother if you run it yourself**
+<p align="center"><img src="https://github.com/ThasianX/GIFs/blob/master/Foldable-And-Expandable-List/demo.gif" height="800"/></p>
 
 ## How this works
 Basically the [`ExpandAndFoldModifier`](https://github.com/ThasianX/Foldable-And-Expandable-List-SwiftUI/blob/master/FoldableScrolling/View%2BExpandableAndFoldable.swift) is applied to every row in the list, wrapping each row in a `GeometryReader` which tells the compiler information about the `minY` position of the row. This will be crucial later on for determining when the row should be folded and the expanding animation's offset. It looks like this:
